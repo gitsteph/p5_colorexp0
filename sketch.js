@@ -4,6 +4,7 @@ var pixelCount;
 var colortonesArray;
 var noteFreqObj;
 
+const colorClosenessFlexValue = 50;
 const detectionDiffInt = 800;
 
 
@@ -75,6 +76,7 @@ function setup() {
 // }
 
 function playSounds(detectionDiffInt) {
+    // TODO: play sound for longer depending on duration on canvas
     if (capture.pixels.length > 0) {
         for (let colortonesIndex in colortonesArray) {
             let targetColor = colortonesArray[colortonesIndex];
@@ -136,6 +138,8 @@ function mousePressed() {
 
 function draw() {
     image(capture, 0, 0, capture.width, capture.height);
+
+    // TODO: log pixels for first capture
 
     // current color box
     fill(get(mouseX, mouseY));
